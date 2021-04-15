@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>requestAnimationFrame study</title>
+  <style>
+    #progress {
+      width: 200px;
+      height: 5px;
+      background: #55aaff;
+    }
+  </style>
+</head>
+<body>
+  <div id="progress"></div>
+
+  <script>
+    let start = null
+    let element = document.getElementById('progress')
+    element.style.position = 'absolute'
+
+    function step(timestamp) {
+      // console.log('timestamp :>> ', timestamp);
+      if (!start) start = timestamp
+      let progress = timestamp - start
+      element.style.left = Math.min(progress/10, 200) + 'px'
+      if (progress < 2000) {
+        window.requestAnimationFrame(step)
+      }
+    }
+    window.requestAnimationFrame(step)
+  </script>
+  <script>
+    let num = 1
+    const changeTiltle = () => {
+      console.log('num%2 :>> ', num%2)
+      if (num % 2) {
+        document.title ="lyc => skj"
+      } else {
+        document.title = "skj => lyc"
+      }
+    }
+    setInterval( ()=> {
+      num++
+      changeTiltle()
+    }, 1000)
+    
+  </script>
+</body>
+</html>

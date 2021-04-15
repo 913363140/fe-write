@@ -1,0 +1,21 @@
+.border_1px::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 1px;
+  width: 100%;
+  background-color: red;
+  transform-origin: 50% 50%;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:2) {
+  .border_1px::before {
+    transform: scaleY(0.5);
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:3) {
+ .border_1px::before {
+   transform: scaleY(0.33);
+ } 
+}
