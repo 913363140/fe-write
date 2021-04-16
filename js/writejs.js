@@ -348,9 +348,14 @@ Function.prototype.apply = function(context, args) {
     return result;
 }
 Function.prototype.bind = function(context, ...args) {
-    return (...newArgs) => {
-        return this.call(context, ...args, ...newArgs);
+    var self = this
+    var fNOP = function(){}
+    var fBound = function (...inArgs) {
+        return self.apply(this instanceOf fNOP ? this, context, args.concat(inArgs))
     }
+    fNOP.prototype = this.prototype
+    fBound.prototype = new FNOP()
+    return fBound
 };
 
 // 14. instanceOf 实现
