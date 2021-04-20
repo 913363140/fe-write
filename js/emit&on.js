@@ -4,7 +4,7 @@ class Observer {
   }
   on(name, fn) {
     if (!this.events[name]) {
-      this.events[name] = []
+      this.events[name] = [fn]
     } 
     this.events[name].push(fn)
   }

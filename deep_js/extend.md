@@ -1,4 +1,5 @@
 // from: https://github.com/mqyqingfeng/Blog/issues/16
+// Date: 2021-4-16
 
 ## 继承的多重实现方式优缺点
 
